@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/glacial-indifference-2');
+  </style>
+
+</head>
+<body>
+  <div class="container" id="container">
+    <div class="header">
+      
+        <div class="company_name">Lombard Bookkeepers
+          <div class="triangulo" ></div> 
+        </div>
+        <div class="company_slogan">Professional Bookkeepers
+          <div class="triangulo2" ></div> 
+        </div>
+    
+        <h1>Quote</h1>
+      </div>
+    
+    <div id="quote" style="padding: 20px;">
+
+      <div class="quote-info">
+        <div class="left">  
+          <div class="left-divs one">
+            <label for="invoiceDate">Quote Date:</label>
+            <input type="text" id="invoiceDate" placeholder="DD/MM/YY">
+          </div>
+          <div class="left-divs one">
+            <label for="invoiceDate2">Due Date:</label>
+            <input type="text" id="invoiceDate2" placeholder="DD/MM/YY">
+          </div>   
+          <div class="left-divs clientInfo">
+            <label for="client">Prepared For:</label>
+            <!-- <input type="text" placeholder="Customer Name">
+            <input type="text" placeholder="Address">
+            <input type="text" placeholder="Address"> -->
+            <textarea class="textArea-left cliente" id="client" rows="1" placeholder="Customer Name" ></textarea>
+            <textarea class="textArea-left" rows="1" placeholder="Address"></textarea>
+            <textarea class="textArea-left" rows="1" placeholder="Address"></textarea>
+          </div>     
+        </div>
+        <!-- logo  -->
+        <div class="right">
+          <img src="img/logo.png" alt="lombardbookkeepers" width="150">
+        </div>
+
+      </div>
+      <table id="quoteTable">
+        <thead>
+          <tr>
+            <th class="center services1">Services</th>
+            <th class="center">Description</th>
+            <th class="qty">Quantity</th>
+            <th class="rate">Rates</th>
+            <th class="subtotal">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="services-td center">
+              <select class="services border" >
+                <option value="volvo">-- Select a service</option>
+                <option value="2">Bookkeeping General Services</option>
+                <option value="saab">Payroll Services</option>
+                <option value="fiat">Tax Services</option>
+                <option value="compliance">Entity Managemenet Services</option>
+                <option value="AR">Accounts Receivable Services</option>
+                <option value="Additional Services">Additional Services</option>
+              </select>
+            </td>
+            <td class="description-info">
+              <input type="text" class="border" placeholder="Descripción" >
+              <input type="text"  class="border" placeholder="Descripción">
+            </td>
+            <td class="center"><input type="number"  class="border" placeholder="0" oninput="updateTotal(this)"></td>
+            <td class="center"><input type="number"  class="border" placeholder="$0.00" oninput="updateTotal(this)"></td>
+            <td class="center"><span class="total border" id="subtotal" >$0.00</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="totals">
+        <div class="totals-div">
+          <label for="total">Total:</label>
+          <span id="total" style="font-size: 22px; font-weight: bold;">$0.00</span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+        <div class="icon-div">
+          <i class="fa-solid fa-square-phone-flip"></i>
+          <p>+1 619 478 0155</p>
+        </div>
+        <div class="icon-div">
+          <i class="fa-solid fa-globe"></i>
+          <p>https://lombardbookkeepers.com</p>
+        </div>
+        <div class="icon-div">
+          <i class="fa-regular fa-envelope"></i>
+          <p>clientcare@lombardbookkeepers.com</p>
+        </div>
+    </footer>
+  </div>
+  <div class="button-container floating-buttons">
+      <button onclick="addRow()"><i class="fa-regular fa-square-plus"></i></button>
+      <button onclick="deleteRow()"><i class="fa-regular fa-trash-can"></i></button>
+      <button onclick="downloadPDF()"><i class="fa-solid fa-file-arrow-down"></i></button>
+  </div>
+
+  <script src="script.js"> </script>
+</body>
+</html>
